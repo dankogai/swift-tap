@@ -15,8 +15,12 @@ public class TAP {
     var tests = 0, runs = [Bool]()
     public init() {}
     public init(tests:Int) {
-        print("1..\(tests)")
+        self.plan(tests)
+    }
+    ///
+    public func plan(tests:Int) {
         self.tests = tests
+        print("1..\(tests)")
     }
     ///
     public func ok(@autoclosure predicate:()->Bool, _ message:String = "")->Bool {
