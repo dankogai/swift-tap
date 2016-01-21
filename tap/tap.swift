@@ -46,18 +46,25 @@ public class TAP {
     }
     /// checks the test results, print stuff if neccesary,
     /// and `exit()` with code == number of failures
-    public func done() {
+    public func done(dontExit nx:Bool = false) {
+        if runs.count == 0 && nx != true {
+            print("# no test run!")
+            exit(-1)
+        }
         if tests == 0 {
             print("1..\(runs.count)")
-            tests == runs.count
         }
         else if runs.count != tests {
             print("not ok \(runs.count + 1) - planned to run \(tests) but actually ran \(runs.count)")
             runs.append(false)
+            if nx != true { exit(-1) }
         }
-        exit(Int32(runs.filter{ $0 == false }.count) & 255)
+        if nx != true {
+            let code = min(254, runs.filter{ $0 == false }.count)
+            exit(Int32(code))
+        }
     }
     deinit {
-        done()
+        done(dontExit:true)
     }
 }
