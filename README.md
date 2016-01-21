@@ -32,14 +32,13 @@ Files=1, Tests=2,  0 wallclock secs ( 0.02 usr +  0.00 sys =  0.02 CPU)
 Result: PASS
 ````
 
-** `./main` actually prints the following:
+`./main` actually prints the following:
 
 ````
 1..2
 ok 1 - 42 + 0.195 == 42.195
 ok 2 - 42 + 0.195 is 42.195
 ````
-
 
 ### test without plan
 
@@ -50,8 +49,6 @@ ok 1 - 42 + 0.195 == 42.195
 ok 2 - 42 + 0.195 is 42.195
 1..2
 ````
-
-* `./main` actually prints as follows:
 
 ## Why NOT [XCTest]?
 
