@@ -22,7 +22,8 @@ public class TAP {
     public func ok(@autoclosure predicate:()->Bool, _ message:String = "")->Bool {
         let ok = predicate()
         runs.append(ok)
-        print("\(ok ? "" : "not ")ok \(runs.count) - \(message)")
+        let ornot = ok ? "" : "not "
+        print("\(ornot)ok \(runs.count) - \(message)")
         return ok
     }
     /// ok if `actual` == `expected`
