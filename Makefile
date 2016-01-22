@@ -1,3 +1,8 @@
+BIN=main
+MOD=TAP
+MODSRC=tap/tap.swift
+BINSRC=$(MODSRC) tap/main.swift
+MODULE=$(MOD).swiftmodule $(MOD).swiftdoc
 SWIFTC=swiftc
 SWIFT=swift
 ifdef SWIFTPATH
@@ -8,12 +13,6 @@ OS := $(shell uname)
 ifeq ($(OS),Darwin)
 	SWIFTC=xcrun -sdk macosx swiftc
 endif
-
-BIN=main
-MOD=TAP
-MODSRC=tap/tap.swift
-BINSRC=$(MODSRC) tap/main.swift
-MODULE=$(MOD).swiftmodule $(MOD).swiftdoc 
 
 all: $(BIN)
 module: $(MODULE)
