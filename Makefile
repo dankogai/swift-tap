@@ -13,14 +13,12 @@ BIN=main
 MOD=TAP
 MODSRC=tap/tap.swift
 BINSRC=$(MODSRC) tap/main.swift
-
 MODULE=$(MOD).swiftmodule $(MOD).swiftdoc 
-SHLIB=lib$(MOD)
 
 all: $(BIN)
 module: $(MODULE)
 clean:
-	-rm $(BIN) $(MODULE) $(SHLIB).*
+	-rm $(BIN) $(MODULE) lib$(MOD).*
 $(BIN): $(BINSRC)
 	$(SWIFTC) $(BINSRC)
 test: $(BIN)
