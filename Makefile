@@ -1,27 +1,31 @@
+SWIFTC=swiftc
+SWIFT=swift
 ifdef SWIFTPATH
 	SWIFTC=$(SWIFTPATH)/swiftc
 	SWIFT=$(SWIFTPATH)/swift
-else
+endif
+OS := $(shell uname)
+ifeq ($(OS),Darwin)
 	SWIFTC=xcrun -sdk macosx swiftc
-	SWIFT=swift
 endif
 
-MAIN=main
+BIN=main
+MOD=TAP
 MODSRC=tap/tap.swift
-SRC=$(MODSRC) tap/main.swift
-MODNAME=TAP
-MODULE=$(MODNAME).swiftmodule $(MODNAME).swiftdoc 
-SHLIB=lib$(MODNAME)
+BINSRC=$(MODSRC) tap/main.swift
 
-all: $(MAIN)
+MODULE=$(MOD).swiftmodule $(MOD).swiftdoc 
+SHLIB=lib$(MOD)
+
+all: $(BIN)
 module: $(MODULE)
 clean:
-	-rm $(MAIN) $(MODULE) $(MODULE) $(SHLIB).*
-$(MAIN): $(SRC)
-	$(SWIFTC) $(SRC)
-test: $(MAIN)
-	prove ./main
+	-rm $(BIN) $(MODULE) $(SHLIB).*
+$(BIN): $(BINSRC)
+	$(SWIFTC) $(BINSRC)
+test: $(BIN)
+	prove ./$(BIN)
 $(MODULE): $(MODSRC)
-	$(SWIFTC) -emit-library -emit-module $(MODSRC) -module-name $(MODNAME)
+	$(SWIFTC) -emit-library -emit-module $(MODSRC) -module-name $(MOD)
 repl: $(MODULE)
-	$(SWIFT) -I. -L. -l$(MODNAME)
+	$(SWIFT) -I. -L. -l$(MOD)
