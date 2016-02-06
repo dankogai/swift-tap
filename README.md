@@ -73,6 +73,7 @@ On the other hand both `actual` and `expected` must be `Equatable`.  So:
 * use `.ok` as a last resort.
 
 ```swift
+public func eq<T:Equatable>(actual:T, _ expected:T, _ message:String = "")->Bool
 public func eq<T:Equatable>(actual:T?, _ expected:T?, _ message:String = "")->Bool
 public func eq<T:Equatable>(actual:[T], _ expected:[T], _ message:String = "")->Bool
 public func eq<K:Hashable,V:Equatable>(actual:[K:V], _ expected:[K:V], _ message:String = "")->Bool
@@ -86,6 +87,7 @@ The opposite of `.eq`.
 
 ```swift
 public func ne<T:Equatable>(actual:T, _ expected:T, _ message:String = "")->Bool
+public func ne<T:Equatable>(actual:T?, _ expected:T?, _ message:String = "")->Bool
 public func ne<T:Equatable>(actual:[T], _ expected:[T], _ message:String = "")->Bool
 public func ne<K:Hashable,V:Equatable>(actual:[K:V], _ expected:[K:V], _ message:String = "")->Bool
 ```
