@@ -43,8 +43,8 @@ open class TAP {
     @discardableResult
     open func eq<T:Equatable>(_ actual:T?, _ expected:T?, _ message:String = "")->Bool {
         if ok(actual == expected, message) { return true }
-        print("#       got: \(actual)")
-        print("#  expected: \(expected)")
+        print("#       got: \(actual as T?)")
+        print("#  expected: \(expected as T?)")
         return false
     }
     /// ok if arrays are `actual` == `expected`
@@ -75,8 +75,8 @@ open class TAP {
     @discardableResult
     open func ne<T:Equatable>(_ actual:T?, _ expected:T?, _ message:String = "")->Bool {
         if ok(actual != expected, message) { return true }
-        print("#       got: \(actual)")
-        print("#  expected: anthing but \(expected)")
+        print("#       got: \(actual as T?)")
+        print("#  expected: anthing but \(expected as T?)")
         return false
     }
     /// ok if arrays are `actual` == `expected`
