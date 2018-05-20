@@ -17,7 +17,7 @@ let package = Package(
   // ...
   dependencies: [
     .Package(
-      url: "https://github.com/dankogai/swift-tap.git", majorVersion: 0
+      url: "https://github.com/dankogai/swift-tap.git", from: "0.5.0"
     )
   ],
   // ...
