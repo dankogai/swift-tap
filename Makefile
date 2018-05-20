@@ -10,7 +10,9 @@ ifdef SWIFTPATH
 	SWIFT=$(SWIFTPATH)/swift
 endif
 
-all:
+all: $(BIN)
+
+$(BIN):
 	$(SWIFT) build
 clean:
 	-rm -r .build
