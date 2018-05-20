@@ -9,13 +9,26 @@ Test Anything Protocol ([TAP]) for Swift
 
 ## Usage
 
-[tap.swift]: ./tap/tap.swift
-[main.swift]: ./tap/main.swift
+Add this project to your `Package.swift`.
 
-* add [tap.swift] to your project.
+```swift
+import PackageDescription
+let package = Package(
+  // ...
+  dependencies: [
+    .Package(
+      url: "https://github.com/dankogai/swift-tap.git", majorVersion: 0
+    )
+  ],
+  // ...
+)
+
+```
+
 * write [main.swift] like below:
 
 ```swift
+import TAP
 let test = TAP(tests:3)
 test.ok(42+0.195 == 42.195, "42 + 0.195 == 42.195") // ok 1 - 42 + 0.195 == 42.195
 test.eq(42+0.195,   42.195, "42 + 0.195 is 42.195") // ok 2 - 42 + 0.195 is 42.195
@@ -26,7 +39,7 @@ test.done()
 * build and test like below:
 
 ```shell
-$ xcrun -sdk macosx swiftc project/*.swift && prove ./main
+$ swift run && prove .build/debug/main
 ./main .. ok   
 All tests successful.
 Files=1, Tests=2,  0 wallclock secs ( 0.02 usr +  0.00 sys =  0.02 CPU)

@@ -1,28 +1,20 @@
-BIN=main
+BUILDDIR=.build/debug
+BIN=$(BUILDDIR)/Tests
 MOD=TAP
-MODSRC=tap/tap.swift
-BINSRC=$(MODSRC) tap/main.swift
-MODULE=$(MOD).swiftmodule $(MOD).swiftdoc
+MODSRC=Sources/TAP/tap.swift
+MODULE=$(BUILDDIR)/$(MOD).swiftmodule $(BUILDDIR)/$(MOD).swiftdoc
 SWIFTC=swiftc
 SWIFT=swift
 ifdef SWIFTPATH
 	SWIFTC=$(SWIFTPATH)/swiftc
 	SWIFT=$(SWIFTPATH)/swift
 endif
-OS := $(shell uname)
-ifeq ($(OS),Darwin)
-	SWIFTC=xcrun -sdk macosx swiftc
-endif
 
-all: $(BIN)
-module: $(MODULE)
+all:
+	$(SWIFT) build
 clean:
-	-rm $(BIN) $(MODULE) lib$(MOD).*
-$(BIN): $(BINSRC)
-	$(SWIFTC) $(BINSRC)
+	-rm -r .build
 test: $(BIN)
 	prove ./$(BIN)
-$(MODULE): $(MODSRC)
-	$(SWIFTC) -emit-library -emit-module $(MODSRC) -module-name $(MOD)
 repl: $(MODULE)
-	$(SWIFT) -I. -L. -l$(MOD)
+	$(SWIFT) -I$(BUILDDIR) -L$(BUILDDIR) -l$(BUILDDIR)/$(MOD)
