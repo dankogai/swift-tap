@@ -14,12 +14,11 @@ let package = Package(
     targets: [
       .target(
         name: "TAP",
-        dependencies: []),
-      .target(
-            name: "Tests",
-            dependencies: ["TAP"]),
-      //.testTarget(
-      //      name: "TAPTests",
-      //      dependencies: ["TAP"]),
+        dependencies: [],
+        path: "Sources/TAP"),
+      .testTarget(
+            name: "TAPTests",
+            dependencies: ["TAP"],
+            path: "Sources/Tests"),
     ]
 )
