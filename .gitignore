@@ -57,3 +57,7 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+# git may never require .DS_Store.
+
+.DS_Store
