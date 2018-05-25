@@ -1,5 +1,6 @@
 BUILDDIR=.build/debug
 BIN=$(BUILDDIR)/Tests
+RESULTS=$(BUILDDIR)/Results.txt
 MOD=TAP
 MODSRC=Sources/TAP/tap.swift
 MODULE=$(BUILDDIR)/$(MOD).swiftmodule $(BUILDDIR)/$(MOD).swiftdoc
@@ -16,7 +17,9 @@ $(BIN):
 	$(SWIFT) build
 clean:
 	-rm -r .build
-test: $(BIN)
-	prove ./$(BIN)
+$(RESULTS): $(BIN)
+	$(SWIFT) test | grep -v "^(Compile|Linking)" | cat > $(RESULTS)
+test: $(RESULTS)
+	prove --exec "cat" $(RESULTS)
 repl: $(MODULE)
 	$(SWIFT) -I$(BUILDDIR) -L$(BUILDDIR) -l$(BUILDDIR)/$(MOD)
