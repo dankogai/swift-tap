@@ -16,6 +16,10 @@ let package = Package(
         name: "TAP",
         dependencies: [],
         path: "Sources/TAP"),
+      .target(
+        name: "main",
+        dependencies: ["TAP"],
+        path: "Sources/TAPSample"),
       .testTarget(
             name: "TAPTests",
             dependencies: ["TAP"],
