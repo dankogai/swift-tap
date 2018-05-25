@@ -110,10 +110,7 @@ public func ne<K:Hashable,V:Equatable>(actual:[K:V], _ expected:[K:V], _ message
 [XCTest]: https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/01-introduction.html
 [travis]: https://travis-ci.org
 
-* Way too fancy and resource-demanding.
-* Not Cross-platform.  Swift is no longer limited to Xcode ever since it is [opensourced].
-
-[opensourced]: https://swift.org
+* Still way too fancy and resource-demanding for some occasions
 
 ## See Also
 
