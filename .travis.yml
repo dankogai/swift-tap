@@ -6,7 +6,7 @@ matrix:
       sudo: required
     - os: osx
       language: objective-c
-      osx_image: xcode9.3
+      osx_image: xcode11.7
 script:
   - swift test
 before_install:
