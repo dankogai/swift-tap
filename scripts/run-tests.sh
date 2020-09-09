@@ -3,22 +3,6 @@
 set -ev
 
 if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-    sudo apt-get -y install \
-          binutils \
-          git \
-          gnupg2 \
-          libc6-dev \
-          libcurl4 \
-          libedit2 \
-          libgcc-9-dev \
-          libpython2.7 \
-          libsqlite3-0 \
-          libstdc++-9-dev \
-          libxml2 \
-          libz3-dev \
-          pkg-config \
-          tzdata \
-          zlib1g-dev
     DIR="$(pwd)"
     cd ..
     export SWIFT_VERSION=swift-5.2.5
