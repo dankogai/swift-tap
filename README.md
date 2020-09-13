@@ -87,9 +87,6 @@ On the other hand both `actual` and `expected` must be `Equatable`.  So:
 
 ```swift
 public func eq<T:Equatable>(actual:T, _ expected:T, _ message:String = "")->Bool
-public func eq<T:Equatable>(actual:T?, _ expected:T?, _ message:String = "")->Bool
-public func eq<T:Equatable>(actual:[T], _ expected:[T], _ message:String = "")->Bool
-public func eq<K:Hashable,V:Equatable>(actual:[K:V], _ expected:[K:V], _ message:String = "")->Bool
 ```
 
 As you can tell from the type signatures, `.eq` and `.ne` accepts arrays and dictionaries if they are equatable.
@@ -100,9 +97,6 @@ The opposite of `.eq`.
 
 ```swift
 public func ne<T:Equatable>(actual:T, _ expected:T, _ message:String = "")->Bool
-public func ne<T:Equatable>(actual:T?, _ expected:T?, _ message:String = "")->Bool
-public func ne<T:Equatable>(actual:[T], _ expected:[T], _ message:String = "")->Bool
-public func ne<K:Hashable,V:Equatable>(actual:[K:V], _ expected:[K:V], _ message:String = "")->Bool
 ```
 
 ## Why NOT [XCTest]?

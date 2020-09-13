@@ -39,57 +39,9 @@ open class TAP {
         print("#  expected: \(expected)")
         return false
     }
-    /// ok if `actual` == `expected`
-    @discardableResult
-    open func eq<T:Equatable>(_ actual:T?, _ expected:T?, _ message:String = "")->Bool {
-        if ok(actual == expected, message) { return true }
-        print("#       got: \(actual as T?)")
-        print("#  expected: \(expected as T?)")
-        return false
-    }
-    /// ok if arrays are `actual` == `expected`
-    @discardableResult
-    open func eq<T:Equatable>(_ actual:[T], _ expected:[T], _ message:String = "")->Bool {
-        if ok(actual == expected, message) { return true }
-        print("#       got: \(actual)")
-        print("#  expected: \(expected)")
-        return false
-    }
-    /// ok if dictionaries are `actual` == `expected`
-    @discardableResult
-    open func eq<K:Hashable,V:Equatable>(_ actual:[K:V], _ expected:[K:V], _ message:String = "")->Bool {
-        if ok(actual == expected, message) { return true }
-        print("#       got: \(actual)")
-        print("#  expected: \(expected)")
-        return false
-    }
-    @discardableResult
     /// ok if `actual` != `expected`
+    @discardableResult
     open func ne<T:Equatable>(_ actual:T, _ expected:T, _ message:String = "")->Bool {
-        if ok(actual != expected, message) { return true }
-        print("#       got: \(actual)")
-        print("#  expected: anthing but \(expected)")
-        return false
-    }
-    /// ok if `actual` != `expected`
-    @discardableResult
-    open func ne<T:Equatable>(_ actual:T?, _ expected:T?, _ message:String = "")->Bool {
-        if ok(actual != expected, message) { return true }
-        print("#       got: \(actual as T?)")
-        print("#  expected: anthing but \(expected as T?)")
-        return false
-    }
-    /// ok if arrays are `actual` == `expected`
-    @discardableResult
-    open func ne<T:Equatable>(_ actual:[T], _ expected:[T], _ message:String = "")->Bool {
-        if ok(actual != expected, message) { return true }
-        print("#       got: \(actual)")
-        print("#  expected: anthing but \(expected)")
-        return false
-    }
-    /// ok if dictionaries are `actual` == `expected`
-    @discardableResult
-    open func ne<K:Hashable,V:Equatable>(_ actual:[K:V], _ expected:[K:V], _ message:String = "")->Bool {
         if ok(actual != expected, message) { return true }
         print("#       got: \(actual)")
         print("#  expected: anthing but \(expected)")
