@@ -2,7 +2,7 @@ matrix:
   include:
     - os: linux
       language: generic
-      dist: bionic
+      dist: focal
       sudo: required
     - os: osx
       language: objective-c
