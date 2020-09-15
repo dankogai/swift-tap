@@ -17,7 +17,7 @@ let package = Package(
   // ...
   dependencies: [
     .Package(
-      url: "https://github.com/dankogai/swift-tap.git", from: "0.5.0"
+      url: "https://github.com/dankogai/swift-tap.git", from: "0.6.0"
     )
   ],
   // ...
@@ -32,7 +32,7 @@ import TAP
 let test = TAP(tests:3)
 test.ok(42+0.195 == 42.195, "42 + 0.195 == 42.195") // ok 1 - 42 + 0.195 == 42.195
 test.eq(42+0.195,   42.195, "42 + 0.195 is 42.195") // ok 2 - 42 + 0.195 is 42.195
-test.ne(42+0.195,   42.195, "42 + 0.195 is not 42") // ok 3 - 42 + 0.195 is not 42
+test.ne(42+0.195,   42,     "42 + 0.195 is not 42") // ok 3 - 42 + 0.195 is not 42
 test.done() 
 ```
 
