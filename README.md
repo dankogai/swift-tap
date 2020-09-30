@@ -9,7 +9,7 @@ Test Anything Protocol ([TAP]) for Swift
 
 ## Usage
 
-Add this project to your `Package.swift`.
+0. Add this project to your `Package.swift`.
 
 ```swift
 import PackageDescription
@@ -25,7 +25,7 @@ let package = Package(
 
 ```
 
-* write [main.swift] like below:
+1. write [main.swift] like below:
 
 ```swift
 import TAP
@@ -36,7 +36,7 @@ test.ne(42+0.195,   42,     "42 + 0.195 is not 42") // ok 3 - 42 + 0.195 is not 
 test.done() 
 ```
 
-* build and test like below:
+2. build and test like below:
 
 ```shell
 $ swift run && prove .build/debug/main
